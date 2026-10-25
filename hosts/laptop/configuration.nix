@@ -4,11 +4,13 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/core
+    ./locale.nix
   ];
 
   #System features
-  system.features.mango        = true;
-  system.features.ly           = true;
+  system.features.mango        = false;
+  system.features.plasma       = true;
+  system.features.ly           = false;
   system.features.virt-manager = true;
   system.features.docker       = true;
   system.features.bluetooth    = true;

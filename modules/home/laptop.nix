@@ -7,7 +7,6 @@
     ./apps-config/stream.nix
     ./apps-config/git.nix
     ./apps-config/winapps.nix
-    ./app-config/mango.nix
     ./apps-config/waybar.nix
   ];
 
@@ -89,7 +88,8 @@
     python314
     git
     kitty
-    vscode
+    vscode-fhs
+    antigravity-ide-fhs
     docker-compose
     ghostty
     jdk
@@ -133,6 +133,28 @@
     kdePackages.kiten
     tagainijisho
     kanarenshu
+
+    ## Rice
+    nerd-fonts.ubuntu
+    hachimarupop
+    inter-nerdfont
+    whitesur-gtk-theme
+    whitesur-icon-theme
+    whitesur-cursors
+    waypaper
+    afterglow-cursors-recolored
+    mint-cursor-themes
+    graphite-cursors
+    posy-cursors
+    hackneyed
+    bibata-cursors-translucent
+    marwaita-icons
+    gruvbox-plus-icons
+    edukai
+    wqy_zenhei
+    eduli
+    moeli
+
   ];
 
   home.stateVersion = "25.11";

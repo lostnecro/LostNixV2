@@ -9,6 +9,7 @@ with lib;
   # Options
   options.system.features = {
     mango         = mkEnableOption "Mango compositor";
+    plasma        = mkEnableOption  "Plasma DE";
 
     ly            = mkEnableOption "Ly Display Manager";
 
@@ -80,6 +81,12 @@ with lib;
     # Mangowm
     (mkIf config.system.features.mango {
       programs.mango.enable = true;
+    })
+
+    # Plasma
+    (mkIf config.system.features.plasma {
+      services.desktopManager.plasma6.enable = true;
+      services.displayManager.plasma-login-manager.enable = true;
     })
 
     #LY
