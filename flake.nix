@@ -1,13 +1,13 @@
 {
-  description = "Lost Nix new config"
+  description = "Lost Nix new config";
 
   inputs = {
     #Nix pkgs channel
-    nixpkgs.url = "github:nixos/pkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     #Home-manager
     home-manager = {
-      url = "github:nix-comunity/home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,7 +25,8 @@
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  }
+  };
+
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -39,7 +40,7 @@
           nixpkgs.overlays = [ inputs.millennium.overlays.default ];
         }
       ];
-    }
-  }
+    };
+  };
 
 }
