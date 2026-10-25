@@ -1,9 +1,21 @@
-{}:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/core
   ];
+
+  #System features
+  system.features.mango        = true;
+  system.features.ly           = true;
+  system.features.virt-manager = true;
+  system.features.docker       = true;
+  system.features.bluetooth    = true;
+  system.features.hamachi      = false;
+  system.features.millennium   = true;
+  system.features.flatpak      = true;
+  system.features.appimage     = true;
 
   #Nix features
   nix.settings.experimental-features = [ "nix-command" "flakes"];
@@ -15,7 +27,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.consoleLogLevel = 3;
-  boot.initrd.verbose = false;
   boot.kernelParams = [
     "quiet"
     "splash"

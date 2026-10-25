@@ -7,6 +7,8 @@
     ./apps-config/stream.nix
     ./apps-config/git.nix
     ./apps-config/winapps.nix
+    ./app-config/mango.nix
+    ./apps-config/waybar.nix
   ];
 
   # User settings
@@ -52,13 +54,13 @@
     wev
     xwayland-satellite
     bluez
-    p7z
+    p7zip
     unzip
     unrar
     ocs-url
     bluetui
     dialog
-    iprout2
+    iproute2
     libnotify
     netcat-openbsd
     networkmanagerapplet
