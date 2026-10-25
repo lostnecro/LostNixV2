@@ -1,0 +1,113 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["custom/launcher", "hyprland/workspaces", "niri/workspaces"],
+  "modules-center": [],
+  "modules-right": [
+    "tray",
+    "idle_inhibitor",
+    "battery",
+    "pulseaudio",
+    "backlight",
+    "custom/notification",
+    "clock",
+    "custom/shutdown",
+  ],
+  "custom/launcher": {
+    "format": "󱓞",
+    "tooltip": false,
+    "on-click": "rofi -show-icons -show drun",
+    "on-click-right": "niri msg action toggle-overview",
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
+  },
+  "custom/shutdown": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "bash $HOME/.config/lostshell/scripts/dmenu.sh power",
+  },
+
+  "custom/tools": {
+    "format": "󱁤",
+    "tooltip": false,
+    "on-click": "bash $HOME/.config/lostshell/scripts/dmenu.sh tools",
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%H:%M | %d/%m}",
+    "tooltip": false,
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+
+  "backlight": {
+    "format": " {percent}%",
+    "tooltip": false,
+    "on-click": "wl-gammactl",
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%  {format_source}%",
+    "on-click": "pavucontrol",
+  },
+
+  "battery": {
+    "format": "󱊣 {capacity}%",
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰛊",
+      "deactivated": "󰾫",
+    },
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "persistent-workspaces": {
+      // Use "*" to apply to all monitors, or replace with your specific output like "eDP-1"
+      "*": [1, 2, 3, 4, 5, 6],
+    },
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      // You can add a default icon for any other workspaces you open
+      "default": "",
+      "active": "",
+    },
+  },
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": true,
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+    "sort-by-id": true,
+  },
+  "dwl/window": {
+    "format": "[{layout}] {title}",
+  },
+}

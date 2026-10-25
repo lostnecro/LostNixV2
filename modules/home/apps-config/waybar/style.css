@@ -1,0 +1,23 @@
+* {
+    font-size: 13px;
+    color: white;
+}
+
+window#waybar {
+    background: rgba(43, 43, 43, 0.151);
+    box-shadow: none;
+}
+
+label.module {
+    padding: 0 10px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+}
+
+#workspaces button.focused {
+    border-bottom: 3px solid white;
+}
