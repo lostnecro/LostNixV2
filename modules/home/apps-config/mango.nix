@@ -43,11 +43,12 @@
 
 
       # Rules
-      monitorrule = [
-        "name:eDP-1,width:1920,height:1080,refresh:60,x:1920,y:0"
-        "name:HDMI-A-1,width:1920,height:1080,refresh:100,x:0,y:0"
+      monitor_rule = [
+        "name:eDP-1,width:1920,height:1080,refresh:60,x:1920,y:1080"
+        "model:24B35HM2,width:1920,height:1080,refresh:100,x:0,y:1080"
+        "model:LS24D300G,width:1920,height:1080,refresh:100,x:1920,y:0"
       ];
-      tagrule = [
+      tag_rule = [
         "id:1,monitor_name:eDP-1,layout_name:scroller"
         "id:2,monitor_name:eDP-1,layout_name:scroller"
         "id:3,monitor_name:eDP-1,layout_name:scroller"

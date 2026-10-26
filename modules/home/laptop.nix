@@ -8,6 +8,7 @@
     ./apps-config/git.nix
     ./apps-config/winapps.nix
     ./apps-config/waybar.nix
+    ./apps-config/mango.nix
   ];
 
   # User settings
@@ -71,6 +72,8 @@
     scrcpy
     nix-direnv
     pavucontrol
+    remmina
+    nautilus
 
     ## WM
     awww
