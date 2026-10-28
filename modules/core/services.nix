@@ -149,7 +149,6 @@ with lib;
         package = pkgs.nextcloud30;
         hostName = "localhost";
         config = {
-          adminuser = "admin";
           dbtype = "pgsql";
         };
         database.createLocally = true;
