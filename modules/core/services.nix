@@ -146,7 +146,7 @@ with lib;
     (mkIf config.system.features.nextcloud {
       services.nextcloud = {
         enable = true;
-        package = pkgs.nextcloud30;
+        package = pkgs.nextcloud35;
         hostName = "localhost";
         config = {
           dbtype = "pgsql";
