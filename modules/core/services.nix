@@ -111,11 +111,6 @@ with lib;
       };
     })
 
-    # Nextcloud
-    (mkIf config.system.features.nextcloud {
-      services.nextcloud.enable = true;
-    })
-
     # Bluetooth
     (mkIf config.system.features.bluetooth {
       hardware.bluetooth.enable = true;
@@ -155,7 +150,6 @@ with lib;
         hostName = "localhost";
         config = {
           adminuser = "admin";
-          adminpassFile = "/etc/nextcloud-admin-pass";
           dbtype = "pgsql";
         };
         database.createLocally = true;
