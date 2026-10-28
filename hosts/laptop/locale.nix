@@ -38,6 +38,7 @@
       fcitx5-gtk
       kdePackages.fcitx5-qt
       kdePackages.fcitx5-chinese-addons
+      kdePackages.fcitx5-configtool
       fcitx5-fluent
       fcitx5-mellow-themes
       fcitx5-inflex-themes

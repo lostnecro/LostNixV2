@@ -19,11 +19,15 @@
       waybar &
       dunst &
       awww-daemon &
-      fcitx5 -d &
+      fcitx5 -d -r &
       nm-applet &
     '';
 
     settings = {
+      # Keyboard
+      xkb_rules_layout = "us";
+      xkb_rules_variant = "intl";
+
       # Window effects
       blur = 1;
       blur_optimized = 1;

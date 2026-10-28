@@ -38,6 +38,11 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     ANI_CLI_PLAYER = "mpv";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    SDL_IM_MODULE = "fcitx";
+    GLFW_IM_MODULE = "ibus";
   };
 
   home.sessionPath = [
@@ -74,6 +79,7 @@
     pavucontrol
     remmina
     nautilus
+    fastfetch
 
     ## WM
     awww

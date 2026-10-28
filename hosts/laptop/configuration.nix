@@ -9,7 +9,7 @@
 
   #System features
   system.features.mango        = true;
-  system.features.plasma       = false;
+  system.features.plasma       = true;
   system.features.ly           = true;
   system.features.virt-manager = true;
   system.features.docker       = true;

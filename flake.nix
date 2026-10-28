@@ -41,6 +41,20 @@
         }
       ];
     };
+
+    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+
+      modules = [
+        ./hosts/server/configuration.nix
+        home-manager.nixosModules.home-manager
+
+        {
+          nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+        }
+      ];
+    };
   };
 
 }

@@ -10,6 +10,7 @@ with lib;
   options.system.features = {
     mango         = mkEnableOption "Mango compositor";
     plasma        = mkEnableOption  "Plasma DE";
+    pantheon      = mkEnableOption "Pantheon DE";
 
     ly            = mkEnableOption "Ly Display Manager";
 
@@ -22,6 +23,7 @@ with lib;
 
     flatpak       = mkEnableOption "Suporte a Flatpak";
     appimage      = mkEnableOption "Suporte a AppImage via binfmt";
+    nextcloud     = mkEnableOption "Nextcloud personal cloud service";
   };
 
   # Config
@@ -109,6 +111,11 @@ with lib;
       };
     })
 
+    # Nextcloud
+    (mkIf config.system.features.nextcloud {
+      services.nextcloud.enable = true;
+    })
+
     # Bluetooth
     (mkIf config.system.features.bluetooth {
       hardware.bluetooth.enable = true;
@@ -138,6 +145,28 @@ with lib;
     (mkIf config.system.features.appimage {
       programs.appimage.enable = true;
       programs.appimage.binfmt = true;
+    })
+
+    # Nextcloud
+    (mkIf config.system.features.nextcloud {
+      services.nextcloud = {
+        enable = true;
+        package = pkgs.nextcloud30;
+        hostName = "localhost";
+        config = {
+          adminuser = "admin";
+          adminpassFile = "/etc/nextcloud-admin-pass";
+          dbtype = "pgsql";
+        };
+        database.createLocally = true;
+      };
+
+      # Ensure default admin pass file exists so first-run doesn't crash
+      systemd.tmpfiles.rules = [
+        "f /etc/nextcloud-admin-pass 0600 nextcloud nextcloud - admin"
+      ];
+
+      networking.firewall.allowedTCPPorts = [ 80 443 ];
     })
   ];
 }
