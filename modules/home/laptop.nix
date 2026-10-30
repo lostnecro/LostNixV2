@@ -3,6 +3,7 @@
 {
   imports = [
     ./flatpak.nix
+    ./apps-config/kitty.nix
     ./apps-config/vim.nix
     ./apps-config/stream.nix
     ./apps-config/git.nix
@@ -49,6 +50,20 @@
     "~/.local/bin"
   ];
 
+  # Misc
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
+  programs.starship.enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 
   # User packages
   home.packages = with pkgs; [
@@ -80,6 +95,8 @@
     remmina
     nautilus
     fastfetch
+    easyeffects
+    qbittorrent
 
     ## WM
     awww
@@ -90,7 +107,7 @@
     slurp
     waybar
     wl-gammactl
-    dunst
+    #dunst
 
     ## Code
     bat

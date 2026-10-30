@@ -14,7 +14,7 @@
   system.features.virt-manager = false;
   system.features.docker       = false;
   system.features.nextcloud    = true;
-  system.features.bluetooth    = false;
+  system.features.bluetooth    = true;
   system.features.hamachi      = false;
   system.features.millennium   = false;
   system.features.flatpak      = false;

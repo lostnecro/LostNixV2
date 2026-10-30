@@ -10,7 +10,7 @@
   #System features
   system.features.mango        = true;
   system.features.plasma       = true;
-  system.features.ly           = true;
+  system.features.ly           = false;
   system.features.virt-manager = true;
   system.features.docker       = true;
   system.features.bluetooth    = true;
@@ -45,6 +45,14 @@
       })
     ];
   };
+
+  # Swap
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
+  services.earlyoom.enable = true;
 
   #HostName
   networking.hostName = "lostnix";
