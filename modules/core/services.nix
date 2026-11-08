@@ -9,7 +9,8 @@ with lib;
   # Options
   options.system.features = {
     mango         = mkEnableOption "Mango compositor";
-    plasma        = mkEnableOption  "Plasma DE";
+    plasma        = mkEnableOption "Plasma DE";
+    incant        = mkEnableOption "IcantDE";
     pantheon      = mkEnableOption "Pantheon DE";
 
     ly            = mkEnableOption "Ly Display Manager";
@@ -51,6 +52,13 @@ with lib;
         alsa.enable = true;
       };
 
+      # Portal
+      xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk ];
+      };
+
+
       # SSH
       services.openssh.enable = true;
 
@@ -90,6 +98,29 @@ with lib;
       services.desktopManager.plasma6.enable = true;
       services.displayManager.plasma-login-manager.enable = true;
     })
+
+    # IncantDE
+    (mkIf config.system.features.incant (
+      let
+        incant = inputs.incant.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        # Adds it to the login screen's list of sessions.
+        session = (pkgs.writeTextDir "share/wayland-sessions/incant.desktop" ''
+          [Desktop Entry]
+          Name=IncantDE
+          Comment=Incantation Desktop
+          Exec=${incant}/bin/incant-compositor
+          Type=Application
+          DesktopNames=IncantDE
+        '').overrideAttrs (old: {
+          passthru = (old.passthru or { }) // { providedSessions = [ "incant" ]; };
+        });
+      in
+      {
+        services.displayManager.sessionPackages = [ session ];
+        environment.systemPackages = [ incant ];
+      }
+    ))
+
 
     #LY
     (mkIf config.system.features.ly {

@@ -5,11 +5,13 @@
     ./hardware-configuration.nix
     ../../modules/core
     ./locale.nix
+    ../../smi-usbdisplay-module.nix
   ];
 
   #System features
   system.features.mango        = true;
   system.features.plasma       = true;
+  system.features.incant       = true;
   system.features.ly           = false;
   system.features.virt-manager = true;
   system.features.docker       = true;
@@ -68,6 +70,7 @@
       "libvirtd"
       "camera"
       "MPD"
+      "i2c"
     ];
   };
 

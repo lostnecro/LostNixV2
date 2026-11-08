@@ -25,6 +25,13 @@
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #IncantDE
+    #IncantDE
+    incant = {
+      url = "git+file:///home/lost/Projects/IncantDE";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
