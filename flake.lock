@@ -108,11 +108,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1794168517,
-        "narHash": "sha256-VDK52FplBFtsNaFynuVy6nZS32tfYTdO8v/S+VR4U1I=",
+        "lastModified": 1794178082,
+        "narHash": "sha256-mpnrHJOkKvmuxxmqwdpkv+rzWMOfvFKNqLkX1ahY7QE=",
         "ref": "refs/heads/main",
-        "rev": "891cb2d6b41ba108ee49f48e8d2872bb5ff94a97",
-        "revCount": 95,
+        "rev": "c8206fda5360306e054219a3d5552379eb62bcaf",
+        "revCount": 97,
         "type": "git",
         "url": "file:///home/lost/Projects/IncantDE"
       },
