@@ -4,6 +4,7 @@ with lib;
 {
   imports = [
     inputs.mangowm.nixosModules.mango
+    inputs.rewin.nixosModules.default
   ];
 
   # Options
@@ -11,6 +12,7 @@ with lib;
     mango         = mkEnableOption "Mango compositor";
     plasma        = mkEnableOption "Plasma DE";
     incant        = mkEnableOption "IcantDE";
+    rewin         = mkEnableOption "ReWin DE";
     pantheon      = mkEnableOption "Pantheon DE";
 
     ly            = mkEnableOption "Ly Display Manager";
@@ -120,6 +122,16 @@ with lib;
         environment.systemPackages = [ incant ];
       }
     ))
+
+    # ReWin
+    (mkIf config.system.features.rewin {
+      services.rewin = {
+        enable = true;
+        package = inputs.rewin.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+          passthru = (old.passthru or { }) // { providedSessions = [ "rewin" ]; };
+        });
+      };
+    })
 
 
     #LY

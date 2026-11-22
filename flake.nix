@@ -27,9 +27,14 @@
     };
 
     #IncantDE
-    #IncantDE
     incant = {
       url = "git+file:///home/lost/Projects/IncantDE";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #ReWinDE
+    rewin = {
+      url = "git+file:///home/lost/Projects/ReWin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

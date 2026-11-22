@@ -267,6 +267,26 @@
         "type": "github"
       }
     },
+    "rewin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795240411,
+        "narHash": "sha256-5+4bIjQqkx5nyUvo5Vp/D/TCKTt0ons4sdFQaO+s/Js=",
+        "ref": "refs/heads/main",
+        "rev": "37590b2bd4ff4998fac5be505aa61b7828eaea83",
+        "revCount": 6,
+        "type": "git",
+        "url": "file:///home/lost/Projects/ReWin"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/lost/Projects/ReWin"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -274,7 +294,8 @@
         "mangowm": "mangowm",
         "millennium": "millennium",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "rewin": "rewin"
       }
     },
     "rust-overlay": {

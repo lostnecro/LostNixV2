@@ -12,6 +12,7 @@
   system.features.mango        = true;
   system.features.plasma       = true;
   system.features.incant       = true;
+  system.features.rewin        = true;
   system.features.ly           = false;
   system.features.virt-manager = true;
   system.features.docker       = true;
