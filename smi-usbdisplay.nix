@@ -39,9 +39,18 @@ stdenv.mkDerivation {
     cp -r "$(dirname "$mgr")"/. $out/lib/smiusbdisplay/
     chmod +x $out/lib/smiusbdisplay/SMIUSBDisplayManager
 
+    # firmware do adaptador — o binário procura em /opt/siliconmotion/
+    # (o módulo cria links para cá via tmpfiles)
+    cp extracted/*.bin $out/lib/smiusbdisplay/
+
     # remove bibliotecas de outras arquiteturas, se vierem junto
     find $out/lib/smiusbdisplay -name '*.so*' -exec sh -c \
       'file "$1" | grep -q x86-64 || rm -f "$1"' _ {} \; 2>/dev/null || true
+
+    # nixpkgs' evdi only ships libevdi.so, but its SONAME (and what the
+    # manager links against) is libevdi.so.1 — provide that name.
+    # (Must come after the cleanup above, which would delete a symlink.)
+    ln -sf ${evdi}/lib/libevdi.so $out/lib/smiusbdisplay/libevdi.so.1
 
     makeWrapper $out/lib/smiusbdisplay/SMIUSBDisplayManager $out/bin/SMIUSBDisplayManager \
       --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ evdi libusb1 libdrm ]}

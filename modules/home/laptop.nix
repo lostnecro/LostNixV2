@@ -97,6 +97,9 @@
     fastfetch
     easyeffects
     qbittorrent
+    firefox
+    ffmpeg
+    ffmpegthumbnailer
 
     ## WM
     awww
@@ -157,7 +160,6 @@
     obsidian
     anki
     kdePackages.kiten
-    tagainijisho
     kanarenshu
 
     ## Rice
